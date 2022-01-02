@@ -23,5 +23,11 @@ module.exports = {
   **/
   add_test: async (obj) => {
     return dbs.insert(obj)
+  },
+  /**
+  * Get test by id
+  **/
+  get_test_by_id: async (id) => {
+    return dbs.get_by_id(id)
   }
 }

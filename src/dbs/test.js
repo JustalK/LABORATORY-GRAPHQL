@@ -17,6 +17,13 @@ module.exports = {
     return model.find()
   },
   /**
+  * Call mongodb for getting one document by id in the collection
+  * @return {Test} The test id or null
+  **/
+  get_by_id: (_id) => {
+    return model.find({ _id })
+  },
+  /**
   * Call mongodb for adding an user to the database
   * @param {Test} test The test to add to the database
   * @return {Test} The test added with the id

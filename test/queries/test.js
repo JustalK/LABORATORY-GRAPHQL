@@ -16,5 +16,18 @@ module.exports = {
           }
         }`
     })
+  },
+  get_test_by_id: async (id) => {
+    return m_utils.getter({
+      query: `
+        query {
+          get_test_by_id(id: "${id}") {
+            _id
+            value_number
+            value_string
+            value_boolean
+          }
+        }`
+    })
   }
 }

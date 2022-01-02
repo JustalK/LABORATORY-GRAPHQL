@@ -3,13 +3,17 @@
 const { gql } = require('apollo-server-express')
 
 module.exports = gql`
-  """
-  Queries of the app
-  """
-  type Query  {
+  extend type Query {
     """
     Return the test
     """
     get_tests: [Test]! @isTest
+    """
+    Return the test by id
+    """
+    get_test_by_id(
+      "The id of the test"
+      id: String
+    ): Test! @isTest
   }
 `
