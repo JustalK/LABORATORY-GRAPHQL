@@ -1,21 +1,9 @@
-# SERVER-API-EMPTY
+# LABORATORY-GRAPHQL
 
-[![Travis](https://img.shields.io/travis/com/justalk/server-api.svg?style=flat-square)](https://travis-ci.com/github/JustalK/server-api)
-[![Coverage Status](https://coveralls.io/repos/github/JustalK/SERVER-API/badge.svg?branch=master)](https://coveralls.io/github/JustalK/SERVER-API?branch=master)
-[![Maintainability](https://api.codeclimate.com/v1/badges/7e6edeed2150efaa35bd/maintainability)](https://codeclimate.com/github/JustalK/SERVER-API/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/7e6edeed2150efaa35bd/test_coverage)](https://codeclimate.com/github/JustalK/SERVER-API/test_coverage)
+This project is my laboratory for testing how to improve my template `server-api` and `server-api-empty`.
 
-This project is a fresh starter for creating a **REST API** with all my favorite tools.
-
-The server is using the library `Express` but it can be switch easily in the **server.js** file for Fastify or Restify. The server is linked to the library `Apollo-server` for managing the data with `GraphQL`. The database is handle by `MongoDB` and can also be easily switch in **database.js**.
-
-The models are found in the folder **models**. Their schema are described with `mongoose` and also typed for using `GraphQL`.
-
-The continuous integration is handled with `Travis` and the coverage is checked by `Coveralls` and `Codeclimate` for checking the level of maintainability of the code. Finally, I use `Ava` for making the test cases. For fixing the style, I use `Eslint`.
-
-Before committing, `Husky` will force the tests to be run and will validate or not the new push.
-
-I also added `dotenv-encode` for encoding or decoding the env files.
+I try to keep this project consise and precise with all the documentation needed for understanding what I am doing.
+There is no goal and the api does not really accomplish anything. This project just shows some principles of GraphQL sush as how to use `extends`, `union` and many other tools of graphql.
 
 ## Plan of the presentation
 
