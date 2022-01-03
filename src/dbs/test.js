@@ -14,7 +14,18 @@ module.exports = {
   * @return {[Test]} The tests or null
   **/
   get_all: () => {
-    return model.find()
+    return model.aggregate([{
+      $facet: {
+        pageInfo: [
+          {
+            $count: 'totalRecords'
+          }
+        ],
+        result: [
+          { $match: { _id: { $exists: true } } }
+        ]
+      }
+    }])
   },
   /**
   * Call mongodb for getting one document by id in the collection
