@@ -13,17 +13,24 @@ module.exports = {
   * Call mongodb for getting every document in the collection
   * @return {[Test]} The tests or null
   **/
-  get_all: () => {
+  get_all: async () => {
     return model.aggregate([{
       $facet: {
-        pageInfo: [
+        info: [
           {
-            $count: 'totalRecords'
+            $count: 'total'
           }
         ],
         result: [
           { $match: { _id: { $exists: true } } }
         ]
+      }
+    },
+    {
+      $addFields: {
+        info: {
+          $arrayElemAt: ['$info', 0]
+        }
       }
     }])
   },

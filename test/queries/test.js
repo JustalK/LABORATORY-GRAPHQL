@@ -9,10 +9,15 @@ module.exports = {
       query: `
         query {
           get_tests {
-            _id
-            value_number
-            value_string
-            value_boolean
+            result {
+              _id
+              value_number
+              value_string
+              value_boolean
+            }
+            info {
+              total
+            }
           }
         }`
     })
