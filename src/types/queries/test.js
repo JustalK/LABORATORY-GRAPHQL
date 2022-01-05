@@ -7,7 +7,7 @@ module.exports = gql`
     """
     Return the test
     """
-    get_tests: [Result]! @isTest
+    get_tests: Result! @isTest
     """
     Return the test by id
     """

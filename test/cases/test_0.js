@@ -6,8 +6,8 @@ const mutations_test = require('@test/mutations/test')
 const cases = (test) => {
   test.only('[TEST] A test getting the actual element in the seed in another file (1 total)', async t => {
     const response = await queries_test.get_tests()
-    console.log(response.get_tests)
-    t.is(response.get_tests.length, 1)
+    t.is(response.get_tests.result.length, 1)
+    t.is(response.get_tests.info.total, 1)
   })
 
   test('[TEST] Another test getting the actual element in the seed in another file (1 total)', async t => {

@@ -14,7 +14,7 @@ module.exports = {
   * @return {[Test]} The tests or null
   **/
   get_all: async () => {
-    return model.aggregate([{
+    const rsl = await model.aggregate([{
       $facet: {
         info: [
           {
@@ -32,7 +32,11 @@ module.exports = {
           $arrayElemAt: ['$info', 0]
         }
       }
-    }])
+    }], (err) => {
+      console.log(err)
+    })
+
+    return rsl ? rsl[0] : null
   },
   /**
   * Call mongodb for getting one document by id in the collection
