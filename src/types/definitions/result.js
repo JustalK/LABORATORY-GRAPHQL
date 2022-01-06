@@ -19,7 +19,7 @@ module.exports = gql`
     """
     The result of the call
     """
-    result: [Test]!
+    result: [TypeResult]!
     """
     The result of the call
     """

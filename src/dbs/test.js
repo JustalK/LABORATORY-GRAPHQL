@@ -33,7 +33,7 @@ module.exports = {
         }
       }
     }], (err) => {
-      console.log(err)
+      // console.log(err)
     })
 
     return rsl ? rsl[0] : null

@@ -80,10 +80,12 @@ module.exports = {
   get_resolvers: () => {
     const queries = module.exports.get_queries()
     const mutations = module.exports.get_mutations()
+    const resolvers_children = module.exports.get_resolvers_children()
 
     const resolvers = {
       Query: queries,
-      Mutation: mutations
+      Mutation: mutations,
+      ...resolvers_children
     }
     return resolvers
   },

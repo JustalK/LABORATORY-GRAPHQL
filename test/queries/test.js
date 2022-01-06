@@ -10,10 +10,12 @@ module.exports = {
         query {
           get_tests {
             result {
-              _id
-              value_number
-              value_string
-              value_boolean
+              ... on Test {
+                _id
+                value_number
+                value_string
+                value_boolean
+              }
             }
             info {
               total
