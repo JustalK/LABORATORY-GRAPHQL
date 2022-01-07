@@ -8,6 +8,8 @@ const path = require('path')
 const filename = path.basename(__filename, '.js')
 const model = require('@src/models/' + filename)
 
+const { AggregateError } = require('@src/errors/mongo')
+
 module.exports = {
   /**
   * Call mongodb for getting every document in the collection
@@ -32,8 +34,8 @@ module.exports = {
           $arrayElemAt: ['$info', 0]
         }
       }
-    }], (err) => {
-      // console.log(err)
+    }], (error) => {
+      throw new AggregateError(filename, error)
     })
 
     return rsl ? rsl[0] : null
