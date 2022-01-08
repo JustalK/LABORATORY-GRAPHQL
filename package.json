@@ -44,6 +44,7 @@
     "express-session": "^1.17.1",
     "express-status-monitor": "^1.3.3",
     "graphql": "^15.4.0",
+    "graphql-scalars": "^1.14.1",
     "graphql-tools": "^4.0.8",
     "graphql-voyager": "^1.0.0-rc.31",
     "helmet": "^4.4.1",

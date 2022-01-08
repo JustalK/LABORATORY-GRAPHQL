@@ -8,8 +8,8 @@ const { ApolloError } = require('apollo-server-errors')
  */
 
 class AggregateError extends ApolloError {
-  constructor (location, meta, message = 'Unexpected Error') {
-    super(`[${location}] ${message}`)
+  constructor (location, meta, message = 'Error Unknown') {
+    super(`[${location}] \n${message}`)
     this.extensions = {
       code: 'MONGO_AGGREGATE_ERROR',
       meta

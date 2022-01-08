@@ -35,10 +35,20 @@ module.exports = {
         }
       }
     }], (error) => {
-      throw new AggregateError(filename, error)
+      if (error) {
+        throw new AggregateError(__filename, error)
+      }
     })
 
     return rsl ? rsl[0] : null
+  },
+  /**
+  * Call mongodb for getting one document by id or something else
+  * @return {Test} The test id or null
+  **/
+  random_get_by_id: (_id) => {
+    console.log(_id)
+    return Math.random() > 0.5 ? model.findOne({ _id }) : null
   },
   /**
   * Call mongodb for getting one document by id in the collection

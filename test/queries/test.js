@@ -36,5 +36,18 @@ module.exports = {
           }
         }`
     })
+  },
+  random_get_by_id: async (id) => {
+    return m_utils.getter({
+      query: `
+        query {
+          random_get_by_id(id: "${id}") {
+            _id
+            value_number
+            value_string
+            value_boolean
+          }
+        }`
+    })
   }
 }

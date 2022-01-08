@@ -22,5 +22,12 @@ module.exports = {
   **/
   get_test_by_id: async (_, args) => {
     return utils_test.get_test_by_id(args.id)
+  },
+  /**
+  * Query for getting a random by id
+  * @param {Test} Return the test found or null
+  **/
+  random_get_by_id: async (_, args) => {
+    return utils_test.random_get_by_id(args.id)
   }
 }

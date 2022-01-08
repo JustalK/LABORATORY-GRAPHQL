@@ -29,5 +29,11 @@ module.exports = {
   **/
   get_test_by_id: async (id) => {
     return dbs.get_by_id(id)
+  },
+  /**
+  * Get test by id
+  **/
+  random_get_by_id: async (id) => {
+    return dbs.random_get_by_id(id)
   }
 }

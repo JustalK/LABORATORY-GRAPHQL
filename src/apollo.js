@@ -6,6 +6,7 @@
 
 const { ApolloServer } = require('apollo-server-express')
 const { makeExecutableSchema } = require('graphql-tools')
+const { VoidResolver, VoidTypeDefinition } = require('graphql-scalars')
 const libs_string = require('@src/libs/string')
 const fs = require('fs')
 
@@ -81,7 +82,6 @@ module.exports = {
     const queries = module.exports.get_queries()
     const mutations = module.exports.get_mutations()
     const resolvers_children = module.exports.get_resolvers_children()
-
     const resolvers = {
       Query: queries,
       Mutation: mutations,
@@ -106,7 +106,8 @@ module.exports = {
         ...typeDefinitions,
         ...typeDirectives,
         ...typeMutations,
-        ...typeQueries
+        ...typeQueries,
+        VoidTypeDefinition
       ],
       resolvers,
       schemaDirectives: directives,
