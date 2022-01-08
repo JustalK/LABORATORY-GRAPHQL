@@ -1,22 +1,21 @@
 const { ApolloError } = require('apollo-server-errors')
 
 /**
- * The AggregateError object which means a mongo request has crashed
- * @typedef {Object} AggregateError
+ * The DocumentNotFound object which means a document has not been found
+ * @typedef {Object} DocumentNotFound
  * @property {string} location The path where the error happened
  * @property {string} meta The meta of the error
  * @property {string} message The message of the error
  * @property {Object} extentions The informations relative to the error
  */
 
-class AggregateError extends ApolloError {
-  constructor (location, meta, message = 'Error Unknown') {
+class DocumentNotFound extends ApolloError {
+  constructor (location, message = 'Error Unknown') {
     super(`[${location}] \n${message}`)
     this.extensions = {
-      code: 'MONGO_AGGREGATE_ERROR',
-      meta
+      code: 'NOT_FOUND'
     }
   }
 }
 
-module.exports = { AggregateError }
+module.exports = { DocumentNotFound }

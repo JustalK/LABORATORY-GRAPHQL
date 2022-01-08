@@ -9,6 +9,7 @@ const filename = path.basename(__filename, '.js')
 const model = require('@src/models/' + filename)
 
 const { AggregateError } = require('@src/errors/mongo')
+const { DocumentNotFound } = require('@src/errors/documentNotFound')
 
 module.exports = {
   /**
@@ -46,9 +47,14 @@ module.exports = {
   * Call mongodb for getting one document by id or something else
   * @return {Test} The test id or null
   **/
-  random_get_by_id: (_id) => {
-    console.log(_id)
-    return Math.random() > 0.5 ? model.findOne({ _id }) : null
+  random_get_by_id: async (_id) => {
+    const test = await model.findOne({ _id })
+
+    if (!test) {
+      throw new DocumentNotFound(__filename, `There is no document with the id (${_id}).`)
+    }
+
+    return test
   },
   /**
   * Call mongodb for getting one document by id in the collection

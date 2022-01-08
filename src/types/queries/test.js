@@ -3,7 +3,7 @@
 const { gql } = require('apollo-server-express')
 
 module.exports = gql`
-  union TypeTestOrNull = Test | Void
+  union TypeTestOrNull = Test
 
   extend type Query {
     """
@@ -24,6 +24,6 @@ module.exports = gql`
     random_get_by_id(
       "The id of the test"
       id: String
-    ): TypeTestOrNull! @isTest
+    ): TypeTestOrNull @isTest
   }
 `

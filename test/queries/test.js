@@ -42,10 +42,12 @@ module.exports = {
       query: `
         query {
           random_get_by_id(id: "${id}") {
-            _id
-            value_number
-            value_string
-            value_boolean
+            ... on Test {
+              _id
+              value_number
+              value_string
+              value_boolean
+            }
           }
         }`
     })
